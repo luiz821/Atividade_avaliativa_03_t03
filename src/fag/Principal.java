@@ -5,45 +5,79 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
-        double n1 =0, n2 =0 ,n3 =0;
-        for(int i=1;i<=3;i++){
-          Scanner ler=new Scanner(System.in);
-          System.out.println("digite o nome do aluno");
-          String nome = ler.nextline();
-          System.out.println("Informe a primeira nota do aluno");
-          n1 = ler.nextDouble();
-          System.out.println("informe a segunda nota do aluno");
-          n2 = ler.nextDouble();
-          System.out.println("informe a terceira nota do aluno");
-          n3 = ler.nextDouble();
-          double mediad = media(n1,n2,n3);
-          aprovacao(mediad);
-
-
-
-
-        }
-    
-     
-     }
- }
-    public static double media(double n1,double n2, double n3){
-      double media = (n1+n2+n3)/3;
-      System.out.println("Sua media foi:"+media);
-      return media;
-    }
+       Scanner scanner = new Scanner(System.in);
+	       int escolha = 0;
+	       int i = 0;
+	       double deposito;
+	       double saldo = 0.0; 
+	       double valdep; //valor depositado
+	       double sacar =  0.0;
+	       int senha = 1234;
+	       int sair;
+	      
+	      while(i<3) {
+	    	
+	      System.out.println("qual sua senha?");
+	      senha = scanner.nextInt();
+	      if(senha==1234)
+	      {
+	    	i=4;  
+	      }
+	      else {
+	      i++;
+	      }
+	      
+	      if(i==3) {
+	    	  System.out.println("tente novamente mais tarde");
+	    	  return;
+	      }
+	      
+	      }
+	      
+	      
+	      
+	       while(escolha<4) {
+	       System.out.println("MENU");
+	       System.out.println("1:DEPOSITAR");
+	       System.out.println("2:CONSULTAR SALDO");
+	       System.out.println("3:SACAR DINHEIRO");
+	       System.out.println("4:SAIR");
+	       System.out.println("Digite o numero que voce deseja ir:");
+	       escolha = scanner.nextInt();
+	   
+	       
+	       switch(escolha) {
+		     case 1:
+		         System.out.println("Digite o valor que deseja depositar: ");
+		         valdep = scanner.nextDouble();
+		         saldo = saldo + valdep;
+		         System.out.printf("Seu saldo é R$ %.2f%n", saldo);
+		         break;
+		         
+		     case 2:
+		         System.out.printf("Seu saldo é R$ %.2f%n", saldo);
+		         break;
+		     case 3:
+		         System.out.println("Digite o valor que deseja retirar: ");
+		         sacar = scanner.nextDouble();
+		         if (sacar > saldo) {
+		             System.out.println("Seu saldo não é suficiente para esta retirada.\n");
+		         } else {
+		             saldo -= sacar;
+		             System.out.printf("Seu saldo é R$ %.2f%n", saldo);
+		         }
+		         break;
+		     case 4:
+		         System.out.println("tchau.\n");
+		         break;   
+		   
+		         
+	       }
+	       }
+		}
+	       
   }
 
-
-  public static void aprovacao(double mediad){
-    if(mediad>=7){
-          System.out.println("Aprovado");
-
-    } else{
-      System.out.println("Reprovado");
-    }
-  }
-}
     
   
 
