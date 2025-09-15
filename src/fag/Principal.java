@@ -5,48 +5,35 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
-     Scanner scanner = new Scanner(System.in);
+    	Scanner scanner = new Scanner(System.in);
+																																																																																								
+		String[] nomes  = {"pedro", "joao ", "marcelo" , "luiz", "luiza"};
 		
-		double[] notas = new double[5];
-		double soma =0;
-		
-		for(int i=0;i<notas.length;i++) {
-			System.out.println("entre com a nota do aluno " + (i+1) + ":" );
-			notas[i] = scanner.nextDouble();
-			soma += notas[i];
-			
-			
-			
-			
-		}
-		
-		double media = soma/notas.length;
-		System.out.println(" a media das notas e: " + media);
-		
-		int acimadamedia =0;
-		double maior = 0 ;
-		double menor = 0 ;
-		for(double nota : notas) {
-			if(nota > media) {
-				acimadamedia++;
-			}
-			
-				if(nota > maior) {
-					maior = nota;
-				} else {
-					if(nota<maior) {
-						menor = nota;
-					}
-				}
-				
-			
-			}
-		System.out.println("a maior nota foi: " + maior);
-		System.out.println("a menor nota foi: " + menor);
-		System.out.println("acima da media" + acimadamedia);
-			
-			scanner.close();
-		}
+		System.out.println("coloque o nome que deseja buscar: ");
+		 String nomebuscado= scanner.next();
+		 
+		 boolean encontrado = false;
+		 int posicao = -1;
+		 
+		 for(int i=0;i<nomes.length;i++) {
+			 if(nomes[i].equalsIgnoreCase(nomebuscado)) {
+				 encontrado = true;
+				 posicao = i;
+				 break;
+			 }
+		 }
+		 if(encontrado) {
+			 System.out.println("o nome que busca consta no sistema" + posicao);
+			 
+		 } else {
+			 System.out.println("nome nao encontrado no sistema ");
+		 }
+		 scanner.close();
+
+	}
+
+}
+
 		
 
 	
