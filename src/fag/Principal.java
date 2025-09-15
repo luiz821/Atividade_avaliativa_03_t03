@@ -5,78 +5,56 @@ import java.util.Scanner;
 public class Principal {
 
 	public static void main(String[] args) {
-       Scanner scanner = new Scanner(System.in);
-	       int escolha = 0;
-	       int i = 0;
-	       double deposito;
-	       double saldo = 0.0; 
-	       double valdep; //valor depositado
-	       double sacar =  0.0;
-	       int senha = 1234;
-	       int sair;
-	      
-	      while(i<3) {
-	    	
-	      System.out.println("qual sua senha?");
-	      senha = scanner.nextInt();
-	      if(senha==1234)
-	      {
-	    	i=4;  
-	      }
-	      else {
-	      i++;
-	      }
-	      
-	      if(i==3) {
-	    	  System.out.println("tente novamente mais tarde");
-	    	  return;
-	      }
-	      
-	      }
-	      
-	      
-	      
-	       while(escolha<4) {
-	       System.out.println("MENU");
-	       System.out.println("1:DEPOSITAR");
-	       System.out.println("2:CONSULTAR SALDO");
-	       System.out.println("3:SACAR DINHEIRO");
-	       System.out.println("4:SAIR");
-	       System.out.println("Digite o numero que voce deseja ir:");
-	       escolha = scanner.nextInt();
-	   
-	       
-	       switch(escolha) {
-		     case 1:
-		         System.out.println("Digite o valor que deseja depositar: ");
-		         valdep = scanner.nextDouble();
-		         saldo = saldo + valdep;
-		         System.out.printf("Seu saldo é R$ %.2f%n", saldo);
-		         break;
-		         
-		     case 2:
-		         System.out.printf("Seu saldo é R$ %.2f%n", saldo);
-		         break;
-		     case 3:
-		         System.out.println("Digite o valor que deseja retirar: ");
-		         sacar = scanner.nextDouble();
-		         if (sacar > saldo) {
-		             System.out.println("Seu saldo não é suficiente para esta retirada.\n");
-		         } else {
-		             saldo -= sacar;
-		             System.out.printf("Seu saldo é R$ %.2f%n", saldo);
-		         }
-		         break;
-		     case 4:
-		         System.out.println("tchau.\n");
-		         break;   
-		   
-		         
-	       }
-	       }
+     Scanner scanner = new Scanner(System.in);
+		
+		double[] notas = new double[5];
+		double soma =0;
+		
+		for(int i=0;i<notas.length;i++) {
+			System.out.println("entre com a nota do aluno " + (i+1) + ":" );
+			notas[i] = scanner.nextDouble();
+			soma += notas[i];
+			
+			
+			
+			
 		}
-	       
-  }
+		
+		double media = soma/notas.length;
+		System.out.println(" a media das notas e: " + media);
+		
+		int acimadamedia =0;
+		double maior = 0 ;
+		double menor = 0 ;
+		for(double nota : notas) {
+			if(nota > media) {
+				acimadamedia++;
+			}
+			
+				if(nota > maior) {
+					maior = nota;
+				} else {
+					if(nota<maior) {
+						menor = nota;
+					}
+				}
+				
+			
+			}
+		System.out.println("a maior nota foi: " + maior);
+		System.out.println("a menor nota foi: " + menor);
+		System.out.println("acima da media" + acimadamedia);
+			
+			scanner.close();
+		}
+		
+
+	
+
+
+
+}       
+  
 
     
   
